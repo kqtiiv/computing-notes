@@ -31,3 +31,22 @@ zip (1:2:3:[]) (True:False:[]) =
     (1, True) : (2, False)
 
 > 7 :: Num a -> a -- 7 has type a, but a is constrained by Num
+
+-- Num has types Integral (Int, Integer, Word)+(div, mod, quot, rem, fromIntegral) and Fractional (Double, Flaot)+((/), recip), which conains the type Floating (Couble, Float)+(pi, exp, log, sin, cos)
+-- Real goes to Rational
+
+> recip :: Fractional a => a -> a
+> recip n = 1/n 
+
+> recip (7.0 :: Double) 
+> recip@Double 7
+
+> unzip :: forall a b. [(a, b)] -> ([a], [b]) -- writing forall braings tyope a and b into scope
+> unzip [] = ([], []) 
+> unzip ((x, y), xys) = (x:xs, y:ys)
+>   where
+>       xs :: [a] -- this a is the same a as above, as we defined it with forall
+>       ys :: [b] -- if we did not define it above, haskell would add forall b. [b] here, which would not be the same b as the above
+>       (xs, ys) = unzip xys
+
+-- in other cases, we do not need to worry about forall, as haskell automatically handles it for us
