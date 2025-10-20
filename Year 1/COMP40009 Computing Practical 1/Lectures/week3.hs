@@ -1,0 +1,3 @@
+-- foldl, scanl
+
+average :: 

@@ -2,6 +2,8 @@ module Lists(twoSame, nextWord) where
 import Data.Set (Set, member, empty, insert)
 import Data.Map (Map, (!), fromList)
 import Data.Char (isSpace)
+import Data.List (unfoldr, (\\))
+import Prelude hiding (lcm)
 
 -- 3
 pos :: Char -> String -> Int
@@ -106,6 +108,7 @@ nextWord :: String -> (String, String)
 nextWord x = go "" x
     where 
         go :: String -> String -> (String, String)
+        go a "" = (a, "")
         go a (h:ts) 
             | isSpace h = (a, ts)
             | otherwise = go (a++[h]) ts
@@ -114,12 +117,83 @@ nextWord x = go "" x
 -- nextWord x = (h, ts)
 --     where (h, ts) = break isSpace x
 
--- 10
-splitUp :: String -> [String]
-splitUp x = go x []
+-- 10 here i used ++ which is not optimal as it is o(n) 
+-- splitUp :: String -> [String]
+-- splitUp x = go x []
+--     where
+--         go :: String -> [String] -> [String]
+--         go "" acc = acc
+--         go y acc  = go b (acc++[a])
+--             where
+--                 (a, b) = nextWord y 
+
+-- here i can a:acc then reverse the list to keep the order which is more idiomatic
+-- splitUp :: String -> [String]
+-- splitUp x = reverse (go x [])
+--     where
+--         go :: String -> [String] -> [String]
+--         go "" acc = acc
+--         go y acc  = go b (a:acc)
+--             where
+--                 (a, b) = nextWord y  
+
+primeFactors :: Int -> [Int] 
+primeFactors n = go 2 n []
     where
-        go :: String -> [String] -> [String]
-        go "" acc = acc
-        go y acc  = go b (acc++[a])
-            where
-                (a, b) = nextWord y 
+        go :: Int -> Int -> [Int] -> [Int]
+        go d n acc
+            | n == d = n : acc
+            | n `mod` d == 0 = go d (n `div` d) (d:acc)
+            | otherwise = go (d+1) n acc
+
+-- 12
+hcf :: Int -> Int -> Int
+hcf a b = product cf
+    where
+        cf = af \\ (af \\ bf)
+        af = primeFactors a
+        bf = primeFactors b
+
+-- 13
+lcm :: Int -> Int -> Int
+lcm a b = product cf
+    where
+        cf = bf ++ (af \\ bf)
+        af = primeFactors a
+        bf = primeFactors b
+
+-- list comp
+qsort :: [Int] -> [Int]
+qsort [] = []
+qsort (l:ls) = subL ++ (l:subG)
+    where
+        subL = qsort [x | x <- ls, x <= l]
+        subG = qsort [x | x <- ls, x > l]
+
+-- 3
+allSplits :: [a] -> [([a], [a])]
+allSplits x = [splitAt n x | n <- [1..(length x - 1)]]
+
+-- 4
+prefixes :: forall a. [a] -> [[a]]
+-- prefixes a = map fst (allSplits a) ++ [a] -- uses ++
+
+-- recursion with list comprehension
+-- prefixes [] = []
+-- prefixes (x:xs) = [x] : [x: prefix | prefix <- prefixes xs]
+
+-- prefixes [] = []
+-- prefixes (x:xs) = map (x:) ([]: prefixes xs)
+
+-- the map has the same shape as a fold as base case is empty and recursively appends to list
+prefixes = foldr pp []
+    where 
+        pp :: a -> [[a]] -> [[a]]
+        pp x ps = map (x:) ([]:ps)
+
+substrings :: String -> [String]
+substrings [] = []
+substrings x@(_:xs) = prefixes x ++ prefixes xs 
+
+perms :: [a] -> [[a]]
+perms 
