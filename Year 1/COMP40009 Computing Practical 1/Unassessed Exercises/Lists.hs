@@ -195,5 +195,113 @@ substrings :: String -> [String]
 substrings [] = []
 substrings x@(_:xs) = prefixes x ++ prefixes xs 
 
-perms :: [a] -> [[a]]
-perms 
+perms :: [Int] -> [[Int]]
+perms xs = [x : ps | x <- xs, ps <- perms (xs \\ [x])]
+
+routes :: Int -> Int -> [(Int, Int)] -> [[Int]]
+routes start end edges 
+    | start == end = [[end]]
+    | otherwise = [start : route | (s, e) <- edges, s == start, route <- routes e end edges]
+
+routes2 :: Int -> Int -> [(Int, Int)] -> [[Int]]
+-- routes2 start end edges = go start []
+--     where
+--         go :: Int -> [Int] -> [[Int]]
+--         go current visited
+--             | current == end = [[end]]
+--             | otherwise = [current : route | (s, e) <- edges, s == current, not (e `elem` visited), route <- go e (current:visited)]
+
+-- with sets
+routes2 start end edges = go start empty
+    where
+        go :: Int -> Set Int -> [[Int]]
+        go cur visited 
+            | cur == end = [[end]]
+            | otherwise = [cur : route | (s, e) <- edges, s == cur, 
+                           not (member e visited), 
+                           route <- go e (insert cur visited)]
+
+
+-- useful functions imported from libraries:
+-- Data.Set: member, insert, empty, fromList, union, intersection, difference, size 
+-- Used to remove duplicates from a list
+-- chicking membership efficiently (O(log n))
+-- set operations like union, intersection, difference
+
+-- Data.Map: (!), fromList, insert, member, empty, lookup, keys, elems, delete
+-- Storing assitiations, counting frequencies, memoisation
+
+-- Data.Char: isSpace, isAlpha, isDigit, toUpper, toLower
+
+-- Data.List: unfoldr, foldl', foldr, intersperse, intercalate, nub, sort, group, (\\), partition, find, elem, transpose
+-- unfoldr: generating lists
+-- foldl' - almost always prefer foldl' to foldl/foldr as it is strict and avoids building up large thunks
+-- good for building up a single result like sum, product, count 
+-- foldr - good for lazy/short-circuit evaluations, as it terminates early for infinite lists
+
+-- foldl' examples
+-- sum = foldl' (+) 0
+-- product = foldl' (*) 1
+-- length = foldl' (\acc _ -> acc + 1) 0
+-- reverse = foldl' (flip (:)) []
+-- maximum = foldl1' max 
+
+-- foldr examples
+-- map f = foldr (\x acc -> f x : acc) []
+-- filter p = foldr (\x acc -> if p x then x : acc else acc) []
+-- any p = foldr (\x acc -> p x || acc) False
+-- all p = foldr (\x acc -> p x && acc) True
+-- concat = foldr (++) []
+
+-- Rule of Thumb for Exams:
+
+-- Building a list? → foldr
+-- Calculating a number? → foldl'
+-- Short-circuit logic? → foldr
+-- When in doubt? → foldl' (safer default)
+
+-- puts an element in between every element of a list
+-- intersperse ',' "abc"           -- "a,b,c"
+-- intersperse 0 [1,2,3]           -- [1,0,2,0,3]
+-- intersperse " " ["hello","world"] -- ["hello"," ","world"]
+
+-- joins a list of lists together with a given separator
+-- intercalate ", " ["apple","banana","cherry"]  -- "apple, banana, cherry"
+-- intercalate " " ["Hello","world"]             -- "Hello world"
+-- intercalate [0] [[1,2],[3,4],[5]]            -- [1,2,0,3,4,0,5]
+
+-- removes duplicates from a list - DO NOT USE!
+-- nub [1,2,2,3,1,4]          -- [1,2,3,4]
+-- nub "hello"                -- "helo"
+-- nub []                     -- []
+-- Warning: O(n²) complexity. For better performance, use Data.Set
+-- nub' = toList . fromList  -- O(n log n)
+
+-- SORT A LIST 
+-- sort [3,1,4,1,5]           -- [1,1,3,4,5]
+-- sort "haskell"             -- "aehklls"
+-- sort ["zebra","apple"]     -- ["apple","zebra"]
+
+-- sortOn length ["hi","hello","bye"]  -- ["hi","bye","hello"]
+
+-- groups consecutive identical elements into sublists
+-- group [1,1,2,2,2,3,1,1]    -- [[1,1],[2,2,2],[3],[1,1]]
+-- group "aabbbaac"           -- ["aa","bbb","aa","c"]
+-- group [1,2,3]              -- [[1],[2],[3]]
+
+-- -- Count frequencies
+-- frequencies xs = map (\g -> (head g, length g)) (group (sort xs))
+-- frequencies "hello"  -- [('e',1),('h',1),('l',2),('o',1)]
+
+-- -- Find duplicates
+-- duplicates xs = [head g | g <- group (sort xs), length g > 1]
+-- duplicates [1,2,2,3,3,3,4]  -- [2,3]
+
+-- -- Run-length encoding
+-- encode xs = [(head g, length g) | g <- group xs]
+-- encode "aaabbbaac"  -- [('a',3),('b',3),('a',2),('c',1)]
+
+-- SPLIT LIST 
+-- partition even [1,2,3,4,5,6]   -- ([2,4,6], [1,3,5])
+-- partition (>3) [1,2,3,4,5]     -- ([4,5], [1,2,3])
+-- partition isUpper "HeLLo"      -- ("HLL", "eo")
