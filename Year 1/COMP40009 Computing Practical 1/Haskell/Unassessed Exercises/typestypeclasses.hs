@@ -36,8 +36,8 @@ data Date = Date {
 age :: Date -> Date -> Int 
 age birth cur 
     | month birth < month cur = year cur - year birth 
-    | month birth > month cur = year cur - year birth -1 
-    | day birth < day cur = year cur - year birth -1 
+    | month birth > month cur = year cur - year birth - 1 
+    | day birth < day cur = year cur - year birth - 1 
     | otherwise = year cur - year birth 
 
 -- data Tree = Leaf | Node Tree Tree deriving (Show, Eq)

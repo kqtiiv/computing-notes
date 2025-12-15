@@ -1,0 +1,5 @@
+packages:.
+-- no compiler path here, labts don't want it
+-- with-compiler:/usr/bin/ghc
+-- don't want tests enabled either, so that we can build tests on our terms
+-- tests: True
