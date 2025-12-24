@@ -101,21 +101,22 @@ initState = BDDState
 
 -- make next node
 mk :: Index -> NodeId -> NodeId -> State BDDState NodeId 
-mk _ l r | l == r = return l
-mk x l r = do 
-    st <- get 
-    let key = (x, l, r) 
-    case M.lookup key (unique st) of 
-        Just nid -> return nid 
-        Nothing -> do 
-            let nid = nextId st 
-            put st 
-                {
-                    nextId = nid + 1,
-                    unique = M.insert key nid (unique st),
-                    nodes = (nid, (x, l, r)) : nodes st 
-                }
-            return nid 
+mk x l r 
+    | l == r = return l
+    | otherwise = do 
+        st <- get 
+        let key = (x, l, r) 
+        case M.lookup key (unique st) of 
+            Just nid -> return nid 
+            Nothing -> do 
+                let nid = nextId st 
+                put st 
+                    {
+                        nextId = nid + 1,
+                        unique = M.insert key nid (unique st),
+                        nodes = (nid, (x, l, r)) : nodes st 
+                    }
+                return nid 
 
 -- Pre: Each variable index in the BExp appears exactly once
 --      in the Index list; there are no other elements
