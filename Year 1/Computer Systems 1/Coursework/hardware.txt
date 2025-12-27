@@ -1,3 +1,0 @@
-// My solution to the Hardware Coursework.
-// My number is 226 or 3202 in base 4.
-// My functions are:
