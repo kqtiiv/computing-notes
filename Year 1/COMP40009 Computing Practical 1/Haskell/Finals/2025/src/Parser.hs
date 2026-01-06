@@ -56,23 +56,43 @@ parseAtom (LParen:ts) = do
   pure (rem', atom)
 parseAtom ts = Left (ExprNotFound (mHead ts))
 
-parseBody :: (Parser Expr -> Expr -> Parser Expr) -> Parser Expr -> Parser Expr
-parseBody internalParser parser ts = do 
-  (toks, t) <- parser ts 
-  internalParser parser t toks
+-- original
 
-parseBody' :: Token -> (Expr -> Expr -> Expr) -> Parser Expr -> Expr -> Parser Expr 
-parseBody' tok cnstr parser t toks = case checkTok tok toks of
-  Left _ -> Right (toks, t)
-  Right toks' -> do 
-    (toks'', x) <- parser toks'
-    parseBody' tok cnstr parser (cnstr t x) toks'' 
+-- parseBody :: (Parser Expr -> Expr -> Parser Expr) -> Parser Expr -> Parser Expr
+-- parseBody internalParser parser ts = do 
+--   (toks, t) <- parser ts 
+--   internalParser parser t toks
+
+-- parseBody' :: Token -> (Expr -> Expr -> Expr) -> Parser Expr -> Expr -> Parser Expr 
+-- parseBody' tok cnstr parser t toks = case checkTok tok toks of
+--   Left _ -> Right (toks, t)
+--   Right toks' -> do 
+--     (toks'', x) <- parser toks'
+--     parseBody' tok cnstr parser (cnstr t x) toks'' 
 
 parseTerm :: Parser Expr
 parseTerm = parseBody (parseBody' Times Mul) parseAtom
 
 parseExpr :: Parser Expr
 parseExpr = parseBody (parseBody' Plus Add) parseTerm
+
+-- new better code 
+
+parseBody :: Parser a -> Parser (a->a->a) -> Parser a 
+parseBody parser' parser toks = do 
+  (toks', t) <- parser toks
+  rest t toks' 
+  where 
+    rest t toks' = case parser' toks of 
+      Left _ -> Right (toks, t) 
+      Right (toks', f) -> do 
+        (toks'', t') <- parser toks'
+        rest (f t t') toks''
+
+parseBody' :: Token -> (Expr -> Expr -> Expr) -> Parser (Expr -> Expr -> Expr)
+parseBody' tok f toks = case checkTok tok toks of 
+  Left _ -> Right (toks, f)
+  Right toks' -> Right (toks', f)
 
 --parseStmt :: [Token]-> Either Error ([Token], Stmt)
 parseStmt :: Parser Stmt
@@ -88,22 +108,34 @@ parseStmt (WhileTok:ets) = do
   pure (ts''', While exp block)
 parseStmt ts = Left (StmtNotFound (mHead ts))
 
+-- original 
+-- parseBlock :: Parser Block
+-- parseBlock ts = do 
+--   (rem, block) <- parseBlock' [] ts
+--   pure (rem, reverse block)
+--   where 
+--     parseBlock' :: [Stmt] -> Parser Block
+--     parseBlock' stmts toks = do 
+--       (toks', s) <- parseStmt toks 
+--       case checkTok Semi toks' of 
+--         Right toks'' -> parseBlock' (s:stmts) toks'' 
+--         _ -> pure (toks', (s:stmts))
+
+-- better 
 parseBlock :: Parser Block
-parseBlock ts = do 
-  (rem, block) <- parseBlock' [] ts
-  pure (rem, reverse block)
+parseBlock = parseBlock' []
   where 
     parseBlock' :: [Stmt] -> Parser Block
     parseBlock' stmts toks = do 
       (toks', s) <- parseStmt toks 
       case checkTok Semi toks' of 
         Right toks'' -> parseBlock' (s:stmts) toks'' 
-        _ -> pure (toks', (s:stmts))
+        _ -> pure (toks', reverse (s:stmts))
 
 parse :: String -> Either Error Program
 parse input = do 
   toks <- tokenise input 
   (rem, block) <- parseBlock toks 
   case rem of 
-    [] -> Right block 
+    [] -> pure block 
     _ -> Left (UnparsedInput rem)
