@@ -118,6 +118,38 @@ mk x l r
                     }
                 return nid 
 
+type UniqueKey = (Index, NodeId, NodeId) 
+
+data BDDState = {
+    nextId :: NodeId,
+    unique :: Map UniqueKey NodeId 
+    nodes :: [BDDNode]
+}
+mk :: Index -> NodeId -> NodeId -> State BDDState NodeId 
+mk x l r 
+    | l == r = return 
+    | otherwise = do 
+        st <- get 
+        let key = (x, l r)
+        case Map.lookup key (unique st) of 
+            Just nid -> return nid 
+            Nothing -> do 
+                let nid = nextId st 
+                put st {
+                    nextId = nid + 1,
+                    unique = Map.insert key nid (unique st)
+                    nodes = (nid, key): nodes st
+                }
+                return nid 
+
+
+initState :: BDDState
+initState = {
+    nextId = 2,
+    unique = Map.empty,
+    nodes = []
+}
+
 -- Pre: Each variable index in the BExp appears exactly once
 --      in the Index list; there are no other elements
 buildROBDD :: BExp -> [Index] -> BDD

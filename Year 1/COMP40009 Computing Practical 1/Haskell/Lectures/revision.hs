@@ -188,3 +188,23 @@ indexPerfTrees t = foldr groupBy' Map.empty sts
         groupBy' :: (Int, Tree a) -> Map Int [Tree a] -> Map Int [Tree a]
         groupBy' (d, t) = Map.insertWith (++) d [t]
           
+isPowerOfTwo :: Int -> Bool 
+isPowerOfTwo 1 = True 
+isPowerOfTwo n 
+    | odd n = False 
+    | otherwise = isPowerOfTwo (n `div` 2)
+
+listToPerf :: [a] -> Maybe (Tree a) 
+listToPerf xs 
+    | null xs = Nothing 
+    | isPowerOfTwo len = Just $ build xs len
+    | otherwise = Nothing 
+    where 
+        len = length xs 
+        
+        build :: [a] -> Int -> Tree a 
+        build [x] _ = Leaf x 
+        build xs n = 
+            let half = n `div` 2 
+                (l, r) = splitAt half xs 
+            in Fork (build l half) (build r half)
