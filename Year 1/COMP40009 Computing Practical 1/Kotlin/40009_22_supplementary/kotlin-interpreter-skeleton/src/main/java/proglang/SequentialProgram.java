@@ -1,0 +1,4 @@
+package proglang;
+
+class SequentialProgram {
+}

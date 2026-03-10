@@ -1,0 +1,4 @@
+package textfiles;
+
+class LazyTextFile {
+}

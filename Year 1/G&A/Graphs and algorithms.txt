@@ -1,0 +1,30 @@
+#separator:tab
+#html:true
+#tags column:3
+Graphs	A set of N nodes and A arcs such that each a in A is associated with an unordered pair of nodes<br>G<br>nodes(G)<br>arcs(G)<br><br>SIMPLE: no parallel arcs and no loops	
+Why parallel arcs	"multiple connections for robustness against failures<br>eg//<br><img src=""paste-99387e63e2cbeddd6848610eb3d911b1eb5eb46d.jpg"">"	
+degree of a node	- number of arcs incident on it<br>- the no of arcs which have that node as an endpoint<br>- count loops twice<br>- each arc contribute twice to the sum of degrees<br><br>SO...<br>- the sum of the degrees of all the nodes of a graph is twice the number of arcs, so even<br>- the number of nodes with odd degree is even	
+G1 subgraph of G2	"<img src=""paste-c3829c82186f7e277a13c7fad1afb38d7d02445d.jpg""><br>this means...<br>nodes(G1)&nbsp;\(\subseteq\)&nbsp;nodes(G2)<br>arcs(G1)&nbsp;\(\subseteq\)&nbsp;arcs(G2)"	
+full subgraph	"- any subset X&nbsp;\(\subseteq\)&nbsp;nodes(G) induces a subgraph G[X] of G where G[X] has nodes X and G[X] contains all arcs of G which join nodes in X&nbsp;<br>- G' is a full subgraph of G if G'=G[X] for some X&nbsp;<br><br><img src=""paste-8aa6436b181a774885924abbd27d3e913867d0a6.jpg"">"	
+Spanning subgraph	"If G' is a subgraph of G and nodes(G') = nodes(G), we say that G' spans G<br><img src=""paste-902d7542a299eeeeadc65f6ed2dc35126b1dd6b3.jpg"">"	
+Adjacency matrix	"<img src=""paste-0ac4df72992ffbf38e51d37ba7c86c01577bfa24.jpg""><br>Diagonals:<br>- count each loop twice (for C/C and A/G) to be consistent with our def of degree"	
+adjacency list	"<img src=""paste-75106efd69400139247c3384521b2ba80e4c323c.jpg""><br>each node's list has some number of elements as arcs"	
+adj matrix vs adj list	matrix:<br>- gives efficient access to any arc in the graph&nbsp;<br><br>list:<br>- fast for certain aglorithms that rely on looking at all arcs incident on a given node<br>- good if graph is sparse (matrix has lots of 0)	
+isomorphism from G to G'	"a bijection f: nodes(G) -&gt; nodes(G') with bijection g: arcs(G) -&gt; arcs(G')<br>such that if a in arcs(G) has endpoints n1 and n2 then the endpoints of g(a) are f(n1) and f(n2)<br><br><img src=""paste-3ab6537ec27aab33d28a8d29defd692bbfa2446e.jpg"">"	
+Testing whether 2 graphs are isomorphic	"- # nodes<br>- # arcs&nbsp;<br>- # loops&nbsp;<br>- do each node have same degrees<br><br>if they are the same, then attempt to find a bijection on nodes"	
+automorphism on graph G	"- an isomorphism from G to itself<br><img src=""paste-7fa28b9273499508387bcce629beb8be7ef3e94e.jpg""><br>1 can map to 1, 2, 3, 4<br>2 can map to 2, 4, as it must stay adjacent to 1<br>3 has to be 3 as it must stay adjacent to 2<br>4 is fixed<br>so 4x2x1x1 = 8"	
+"<img src=""paste-062ca00bb307f0c0fa9374b205e0e1f8a46367de.jpg""><br>how many automorphisms"	1: 1, 3<br>2: 2, 4<br>3: 1 place<br>4: 1 place<br>2x2 = 4	
+planar graphs	"it can be redrawn with straight lines so that no arcs cross<br>eg&nbsp;<img src=""paste-fa3cc997b9a0f27c76ecf99eacc069f34cf7241b.jpg"">"	
+Kuratowski's Theorem	"A graph is planer iff it does not contain a subgraph homeomorphic to K5 or K3.3<br><img src=""paste-59f03910dc6121da66fc88c84892f2e27cbbf111.jpg""><br><img src=""paste-d5ebb459dd7de8ff3c27eec71cedf8f314392a59.jpg""><br><br>2 graphs are homeomorphic if you can replace a edge x-y with x-z-y<br><img src=""paste-423024722498ddad4ef5ac25ca025994e6190b1d.jpg"">"	
+Euler's Formula	"F = A-N+2<br>EG//<br><img src=""paste-75d119188454963f2b1e95ce8cf0cf4aabf09b2a.jpg""><br>F=6, A=12, N=8"	
+Dual graphs	- of maps are always simple and planar<br>- any simple planar graph is the dual graph of some map	
+4 color theorem	every map can be coloured using at most 4 colors	
+k-colourable&nbsp;	if the nodes G can be coloured using no more than k colours	
+definition of G being bipartite&nbsp;	if nodes(G) can be partitioned into sets X and Y in such a way that no 2 nodes of X are joined and no 2 nodes of Y are joined	
+Forming a graph with n automorphisms	"draw a cyclic graph with n nodes<br>at each edge, add a asymmetric graph&nbsp;<br><br>eg// 5 am<br><img alt=""Build graph with exactly n automorphisms - Mathematics Stack Exchange"" src=""Y5apa.png"">"	
+Euler path	"a path which uses each arc EXACTLY ONCE<br><br>IF INTERMEDIATE NODE HAS ODD DEGREE, THEN CANNOT USE ALL ARCS<br>IF GRAPH HAS EULER PATH, #ODD NODES = 0/2<br>IF GRAPH HAS EULER CIRCUIT, EVERY NODE MUST BE EVEN"	
+Euler circuit/CYCLE	A cycle which uses each arc EXACTLY ONCE	
+HAMILTONIAN PATH	A path which visits every node exactly once<br>MUST BE CONNECTED<br>Circuit: path that returns back to start node<br>DEGREE &gt;=2	
+Trees	ACYCLIC, CONNECTED, ROOTED (GRAPH G&nbsp; TOGETHER WITH A DISTINGUISED NODE)<br><br>NONROOTED - ACYCLIC CONNECTED<br><br>DEPTH OF TREE IS MAXIMUM DEPTH OF ALL OF ITS NODES<br><br>TREE WITH N NODES = N-1 ARCS	
+SPANNING TREES	Non rooted tree T where <br>T is a subgraph of G<br>nodes(T) = nodes(G)<br><br>If G is connected, it MUST have a spanning tree<br>not necessarily unique	
+Directed graphs	"Set of nodes N, set of arcs A, such that each arc is associated with an ORDERED pair of nodes<br><br>indegree: #arcs entering x<br>outdegree: #arcs exiting x<br><br>#indegrees = #outdegrees = #arcs<br><br>STRONGLY CONNECTED: for any x, y theres a path from x to y SO require path from both x-&gt;y and y-&gt;x"	

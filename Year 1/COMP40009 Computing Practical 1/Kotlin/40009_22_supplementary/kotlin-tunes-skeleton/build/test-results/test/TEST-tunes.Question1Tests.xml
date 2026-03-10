@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tunes.Question1Tests" tests="29" skipped="0" failures="0" errors="0" timestamp="2026-03-10T00:11:19" hostname="KATIEWAN" time="0.028">
+  <properties/>
+  <testcase name="testEquals1" classname="tunes.Question1Tests" time="0.001"/>
+  <testcase name="testEquals2" classname="tunes.Question1Tests" time="0.0"/>
+  <testcase name="testEquals3" classname="tunes.Question1Tests" time="0.001"/>
+  <testcase name="testEquals4" classname="tunes.Question1Tests" time="0.0"/>
+  <testcase name="testEquals5" classname="tunes.Question1Tests" time="0.001"/>
+  <testcase name="testEquals6" classname="tunes.Question1Tests" time="0.017"/>
+  <testcase name="testEquals7" classname="tunes.Question1Tests" time="0.0"/>
+  <testcase name="testConstructorBottomShortestNote" classname="tunes.Question1Tests" time="0.0"/>
+  <testcase name="testDuration" classname="tunes.Question1Tests" time="0.0"/>
+  <testcase name="testPitch" classname="tunes.Question1Tests" time="0.0"/>
+  <testcase name="testToString" classname="tunes.Question1Tests" time="0.0"/>
+  <testcase name="testConstructorPitchTooHigh1" classname="tunes.Question1Tests" time="0.0"/>
+  <testcase name="testConstructorPitchTooHigh2" classname="tunes.Question1Tests" time="0.0"/>
+  <testcase name="testConstructorNegativeDuration" classname="tunes.Question1Tests" time="0.0"/>
+  <testcase name="testConstructorTopFastestNote" classname="tunes.Question1Tests" time="0.0"/>
+  <testcase name="testConstructorZeroDuration" classname="tunes.Question1Tests" time="0.001"/>
+  <testcase name="testHasNoteAbove1" classname="tunes.Question1Tests" time="0.0"/>
+  <testcase name="testHasNoteAbove2" classname="tunes.Question1Tests" time="0.0"/>
+  <testcase name="testHasNoteAbove3" classname="tunes.Question1Tests" time="0.0"/>
+  <testcase name="testHasNoteBelow1" classname="tunes.Question1Tests" time="0.0"/>
+  <testcase name="testHasNoteBelow2" classname="tunes.Question1Tests" time="0.0"/>
+  <testcase name="testHasNoteBelow3" classname="tunes.Question1Tests" time="0.0"/>
+  <testcase name="testConstructorDurationTooHigh1" classname="tunes.Question1Tests" time="0.0"/>
+  <testcase name="testConstructorDurationTooHigh2" classname="tunes.Question1Tests" time="0.0"/>
+  <testcase name="testConstructorNegativePitch" classname="tunes.Question1Tests" time="0.0"/>
+  <testcase name="testNoteAbove1" classname="tunes.Question1Tests" time="0.0"/>
+  <testcase name="testNoteAbove2" classname="tunes.Question1Tests" time="0.0"/>
+  <testcase name="testNoteBelow1" classname="tunes.Question1Tests" time="0.0"/>
+  <testcase name="testNoteBelow2" classname="tunes.Question1Tests" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

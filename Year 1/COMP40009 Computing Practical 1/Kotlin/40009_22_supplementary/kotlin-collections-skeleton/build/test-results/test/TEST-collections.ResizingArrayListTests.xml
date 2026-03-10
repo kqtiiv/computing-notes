@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="collections.ResizingArrayListTests" tests="39" skipped="0" failures="0" errors="0" timestamp="2026-03-08T13:47:04" hostname="KATIEWAN" time="0.054">
+  <properties/>
+  <testcase name="test addAll at start" classname="collections.ResizingArrayListTests" time="0.014"/>
+  <testcase name="test add (Int)" classname="collections.ResizingArrayListTests" time="0.001"/>
+  <testcase name="test removeAt in bounds from end (Int)" classname="collections.ResizingArrayListTests" time="0.0"/>
+  <testcase name="test addAll small" classname="collections.ResizingArrayListTests" time="0.0"/>
+  <testcase name="concatenate with iterator" classname="collections.ResizingArrayListTests" time="0.001"/>
+  <testcase name="test set (String)" classname="collections.ResizingArrayListTests" time="0.001"/>
+  <testcase name="test removeAt out of bounds on non-empty list (Int)" classname="collections.ResizingArrayListTests" time="0.0"/>
+  <testcase name="test set (Int)" classname="collections.ResizingArrayListTests" time="0.0"/>
+  <testcase name="test resize in add-at-index if list is full (String)" classname="collections.ResizingArrayListTests" time="0.0"/>
+  <testcase name="test add at start with resize (String)" classname="collections.ResizingArrayListTests" time="0.001"/>
+  <testcase name="test removeAt out of bounds on empty list (Int)" classname="collections.ResizingArrayListTests" time="0.001"/>
+  <testcase name="test get (Int)" classname="collections.ResizingArrayListTests" time="0.001"/>
+  <testcase name="test toString empty (Int)" classname="collections.ResizingArrayListTests" time="0.001"/>
+  <testcase name="test remove on empty list (Int)" classname="collections.ResizingArrayListTests" time="0.0"/>
+  <testcase name="test remove (Int) removes first item when there are duplicates in list" classname="collections.ResizingArrayListTests" time="0.002"/>
+  <testcase name="test add with resize (String)" classname="collections.ResizingArrayListTests" time="0.001"/>
+  <testcase name="test remove with (Int) that does appear in list" classname="collections.ResizingArrayListTests" time="0.0"/>
+  <testcase name="test addAll to zero-capacity list" classname="collections.ResizingArrayListTests" time="0.0"/>
+  <testcase name="test remove on (Int) that do not appear in list" classname="collections.ResizingArrayListTests" time="0.001"/>
+  <testcase name="test add in middle (String)" classname="collections.ResizingArrayListTests" time="0.001"/>
+  <testcase name="size is 0" classname="collections.ResizingArrayListTests" time="0.001"/>
+  <testcase name="test resize in add-at-index if list is full (Int)" classname="collections.ResizingArrayListTests" time="0.0"/>
+  <testcase name="test addAll at index small" classname="collections.ResizingArrayListTests" time="0.0"/>
+  <testcase name="iterator has next when empty" classname="collections.ResizingArrayListTests" time="0.001"/>
+  <testcase name="test add at end (Int)" classname="collections.ResizingArrayListTests" time="0.0"/>
+  <testcase name="test remove on list with (String)" classname="collections.ResizingArrayListTests" time="0.001"/>
+  <testcase name="iterate over elements" classname="collections.ResizingArrayListTests" time="0.001"/>
+  <testcase name="test add (String)" classname="collections.ResizingArrayListTests" time="0.018"/>
+  <testcase name="test add in middle (Int)" classname="collections.ResizingArrayListTests" time="0.0"/>
+  <testcase name="test get (String)" classname="collections.ResizingArrayListTests" time="0.0"/>
+  <testcase name="test add at end (String)" classname="collections.ResizingArrayListTests" time="0.0"/>
+  <testcase name="test clear (String)" classname="collections.ResizingArrayListTests" time="0.0"/>
+  <testcase name="test removeAt in bounds from middle (String)" classname="collections.ResizingArrayListTests" time="0.0"/>
+  <testcase name="test add (String) with zero initial capacity" classname="collections.ResizingArrayListTests" time="0.0"/>
+  <testcase name="test removeAt in bounds from end (String)" classname="collections.ResizingArrayListTests" time="0.0"/>
+  <testcase name="test addAll at end" classname="collections.ResizingArrayListTests" time="0.0"/>
+  <testcase name="test add with resize (Int)" classname="collections.ResizingArrayListTests" time="0.0"/>
+  <testcase name="test clear (Int)" classname="collections.ResizingArrayListTests" time="0.0"/>
+  <testcase name="test toString empty (String)" classname="collections.ResizingArrayListTests" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

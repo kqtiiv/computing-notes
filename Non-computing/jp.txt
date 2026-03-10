@@ -1,0 +1,353 @@
+I | わたし (私)
+You | あなた
+That person (polite) | あのひと (あの方 - あのかた)
+Suffix added to a name for politeness | ～さん
+Suffix often added to a child's name | ～ちゃん
+Suffix meaning "suffix for nationality" | ～じん (～人)
+Teacher/Instructor | せんせい (先生)
+Teacher (referring to one's own occupation) | きょうし (教師)
+Student | がくせい (学生)
+Company employee | かいしゃいん (会社員)
+Employee of ~ company | ～のしゃいん (～の社員)
+Bank employee | ぎんこういん (銀行員)
+Medical doctor | いしゃ (医者)
+Researcher/Scholar | けんきゅうしゃ (研究者)
+University | だいがく (大学)
+Hospital | びょういん (病院)
+Who | だれ (どなた)
+How old | さい (～歳) / おいくつ
+Yes | はい
+No | いいえ
+How do you do? (First time meeting) | はじめまして
+I am from (country). | ～からきました
+Pleased to meet you. | どうぞよろしくおねがいします
+Excuse me, but (used when asking personal info) | しつれいですが
+May I have your name? | おなまえは？
+This is Mr./Ms. ~. | こちらは～さんです
+This | これ
+That (near listener) | それ
+That (far from both) | あれ
+This ~ (followed by noun) | この
+That ~ (followed by noun, near listener) | その
+That ~ (followed by noun, far from both) | あの
+Book | ほん (本)
+Dictionary | じしょ (辞書)
+Magazine | ざっし (雑誌)
+Newspaper | しんぶん (新聞)
+Notebook | てちょう (手帳)
+Business card | めいし (名刺)
+Card | カード
+Pencil | えんぴつ (鉛筆)
+Ballpoint pen | ボールペン
+Mechanical pencil | シャープペンシル
+Key | かぎ
+Watch/Clock | とけい (時計)
+Umbrella | かさ (傘)
+Bag/Briefcase | かばん
+Cassette tape | カセットテープ
+Tape recorder | テープレコーダー
+Television | テレビ
+Radio | ラジオ
+Camera | カメラ
+Computer | コンピューター
+Automobile/Car | じどうしゃ (自動車)
+Desk | つくえ (机)
+Chair | いす
+Chocolate | チョコレート
+Coffee | コーヒー
+The English language | えいご (英語)
+The Japanese language | にほんご (日本語)
+What | なん (何)
+So / I see | そう
+I'm looking forward to working with you. | これからおせわになります
+Here | ここ
+There (near listener) | そこ
+Over there (far from both) | あそこ
+Where | どこ
+This way (polite) | こちら
+That way (polite) | そちら
+That way (polite, far) | あちら
+Which way / Where (polite) | どちら
+Classroom | きょうしつ (教室)
+Dining hall/Canteen | しょくどう (食堂)
+Office | じむしょ (事務所)
+Meeting room | かいぎしつ (会議室)
+Reception desk | うけつけ (受付)
+Lobby | ロビー
+Room | へや (部屋)
+Toilet/Restroom | おてあらい (お手洗い) / トイレ
+Staircase | かいだん (階段)
+Elevator | エレベーター
+Escalator | エスカレーター
+Vending machine | じどうはんばいき (自動販売機)
+Telephone / Phone call | でんわ (電話)
+Country | おくに (お国)
+Company | かいしゃ (会社)
+House/Home | うち
+Shoes | くつ (靴)
+Necktie | ネクタイ
+Wine | ワイン
+Sales counter | うりば (売り場)
+Basement | ちか (地下)
+-th floor | ～かい (～階)
+How much | いくら
+Hundred | ひゃく (百)
+Thousand | せん (千)
+Ten thousand | まん (万)
+I'll take it. | これをください
+Wake up / Get up | おきます (起きる)
+Sleep / Go to bed | ねます (寝る)
+Work | はたらきます (働く)
+Take a rest / Take a holiday | やすみます (休みます)
+Study | べんきょうします (勉強します)
+Finish | おわります (終わります)
+Department store | デパート
+Bank | ぎんこう (銀行)
+Post office | ゆうびんきょく (郵便局)
+Library | としょかん (図書館)
+Art museum | びじゅつかん (美術館)
+Now | いま (今)
+-o'clock | ～じ (～時)
+-minute | ～ふん / ～ぷん (～分)
+Half (past the hour) | はん (半)
+What time | なんじ (何時)
+What minute | なんぷん (何分)
+A.M. | ごぜん (午前)
+P.M. | ごご (午後)
+Morning | あさ (朝)
+Daytime / Afternoon | ひる (昼)
+Night / Evening | ばん (よる)
+The day before yesterday | おととい
+Yesterday | きのう
+Today | きょう
+Tomorrow | あした
+The day after tomorrow | あさって
+This morning | けさ
+Tonight | こんばん
+Rest / Holiday | やすみ (休み)
+Lunch break | ひるやすみ (昼休み)
+Every morning | まいあさ (毎朝)
+Every night | まいばん (毎晩)
+Every day | まいにち (毎日)
+From | ～から
+Until | ～まで
+And (connecting nouns) | ～と～
+Your number? | そちらはなんばん(何番)ですか
+Go | いきます (行く)
+Come | きます (来る)
+Go home / Return | かえります (帰る)
+School | がっこう (学校)
+Supermarket | スーパー
+Station | えき (駅)
+Airplane | ひこうき (飛行機)
+Ship / Boat | ふね (船)
+Electric train | でんしゃ (電車)
+Subway | ちかてつ (地下鉄)
+Bullet train | しんかんせん (新幹線)
+Bus | バス
+Taxi | タクシー
+Bicycle | じてんしゃ (自転車)
+Walk | あるいて (歩いて)
+Person | ひと (人)
+Friend | ともだち (友達)
+He / Boyfriend | かれ (彼)
+She / Girlfriend | かのじょ (彼女)
+Family | かぞく (家族)
+Alone / By oneself | ひとりで (一人で)
+Last week | せんしゅう (先週)
+This week | こんしゅう (今週)
+Next week | らいしゅう (来週)
+Last month | せんげつ (先月)
+This month | こんげつ (今月)
+Next month | らいげつ (来月)
+Last year | きょねん (去年)
+This year | ことし (今年)
+Next year | らいねん (来年)
+What month | なんがつ (何月)
+1st day of the month | ついたち (一日)
+2nd day | ふつか (二日)
+3rd day | みっか (三日)
+4th day | よっか (四日)
+5th day | いつか (五日)
+6th day | むいか (六日)
+7th day | なのか (七日)
+8th day | ようか (八日)
+9th day | ここのか (九日)
+10th day | とおか (十日)
+14th day | じゅうよっか (十四日)
+20th day | はつか (二十日)
+24th day | にじゅうよっか (二十四日)
+What day of the month | なんにち (何日)
+Birthday | たんじょうび (誕生日)
+Eat | たべます (食べる)
+Drink | のみます (飲む)
+Smoke (a cigarette) | すいます (吸う)
+See / Watch / Look at | みます (見る)
+Hear / Listen | ききます (聞く)
+Read | よみます (読む)
+Write / Draw | かきます (書く)
+Buy | かいます (買う)
+Take (a photo) | とります (撮る)
+Do | します (する)
+Meet (a friend) | あいます (会う)
+Meal / Cooked rice | ごはん
+Breakfast | あさごはん (朝ごはん)
+Lunch | ひるごはん (昼ごはん)
+Supper | ばんごはん (晩ごはん)
+Bread | パン
+Egg | たまご (卵)
+Meat | にく (肉)
+Fish | さかな (魚)
+Vegetable | やさい (野菜)
+Fruit | くだもの (果物)
+Water | みず (水)
+Tea / Green tea | おちゃ (お茶)
+Black tea | こうちゃ (紅茶)
+Milk | ぎゅうにゅう (牛乳) / ミルク
+Juice | ジュース
+Beer | ビール
+Alcohol / Sake | おさけ (お酒)
+Video | ビデオ
+Movie | えいが (映画)
+Letter | てがみ (手紙)
+Report | レポート
+Photograph | しゃしん (写真)
+Store / Shop | みせ (店)
+Restaurant | レストラン
+Garden | にわ (庭)
+Homework | しゅくだい (宿題)
+Tennis | テニス
+Soccer | サッカー
+Cherry-blossom viewing | おはなみ (お花見)
+What | なに (何)
+Together | いっしょに
+A little | ちょっと
+Always | いつも
+Sometimes | ときどき
+Understood | わかりました
+Cut / Slice | きります (切る)
+Send | おくります (送る)
+Give | あげます
+Receive | もらいます
+Lend | かします (貸す)
+Borrow | かります (借りる)
+Teach | おしえます (教える)
+Learn | ならいます (習う)
+Make (a phone call) | かけます
+Hand | て (手)
+Chopsticks | はし
+Spoon | スプーン
+Knife | ナイフ
+Fork | フォーク
+Scissors | はさみ
+PC / Personal computer | パソコン
+Cell phone | けいたいでんわ (携帯電話)
+E-mail | メール
+New Year's card | ねんがじょう (年賀状)
+Punch | パンチ
+Stapler | ホッチキス
+Scotch tape | セロテープ
+Eraser | けしごむ (消しゴム)
+Paper | かみ (紙)
+Flower | はな (花)
+Baggage / Parcel | にもつ (荷物)
+Money | おかね (お金)
+Present / Gift | プレゼント
+Ticket | きっぷ (切符)
+Christmas | クリスマス
+Father (my) | ちち (父)
+Mother (my) | はは (母)
+Father (someone else's) | おとうさん (お父さん)
+Mother (someone else's) | おかあさん (お母さん)
+Already | もう
+Not yet | まだ
+From now on | これから
+Handsome | ハンサム[な]
+Quiet | しずか[な] (静か)
+Lively | にぎやか[な]
+Famous | ゆうめい[な] (有名)
+Kind / Helpful | しんせつ[な] (親切)
+Healthy / Energetic | げんき[な] (元気)
+Free (time) | ひま[な] (暇)
+Convenient | べんり[な] (便利)
+Fine / Splendid | すてき[な]
+Big | おおきい (大きい)
+Small | ちいさい (小さい)
+New | あたらしい (新しい)
+Old (not for people) | ふるい (古い)
+Good | いい (よい)
+Bad | わるい (悪い)
+Hot (weather/touch) | あつい (暑い / 熱い)
+Cold (weather) | さむい (寒い)
+Cold (touch) | つめたい (冷たい)
+Difficult | むずかしい (難しい)
+Easy | やさしい (易しい)
+Expensive / Tall / High | たかい (高い)
+Inexpensive / Cheap | やすい (安い)
+Interesting | おもしろい (面白い)
+Delicious | おいしい
+Busy | いそがしい (忙しい)
+Enjoyable | たのしい (楽しい)
+White | しろい (白い)
+Black | くろい (黒い)
+Red | あかい (赤い)
+Blue | あおい (青い)
+Sakura (Cherry blossom) | さくら (桜)
+Mountain | やま (山)
+Town / City | まち (町)
+Food | たべもの (食べ物)
+Place | ところ (所)
+Dormitory | りょう (寮)
+Life | せいかつ (生活)
+Work / Business | おしごと (お仕事)
+How | どう
+What kind of ~ | どんな
+Which one (among three or more) | どれ
+Very | とても
+Not so (used with negative) | あまり
+And (used to connect sentences) | そして
+~, but ~ | ～が、～
+How are you? | おげんきですか
+Let's see... | そうですね
+1 (One) | いち (一)
+2 (Two) | に (二)
+3 (Three) | さん (三)
+4 (Four) | よん / し (四)
+5 (Five) | ご (五)
+6 (Six) | ろく (六)
+7 (Seven) | なな / しち (七)
+8 (Eight) | はち (八)
+9 (Nine) | きゅう / く (九)
+10 (Ten) | じゅう (十)
+100 (One hundred) | ひゃく (百)
+1,000 (One thousand) | せん (千)
+10,000 (Ten thousand) | まん (万)
+Sunday | にちようび (日曜日)
+Monday | げつようび (月曜日)
+Tuesday | かようび (火曜日)
+Wednesday | すいようび (水曜日)
+Thursday | もくようび (木曜日)
+Friday | きんようび (金曜日)
+Saturday | どようび (土曜日)
+January | いちがつ (一月)
+February | にがつ (二月)
+March | さんがつ (三月)
+April | しがつ (四月)
+May | ごがつ (五月)
+June | ろくがつ (六月)
+July | しちがつ (七月)
+August | はちがつ (八月)
+September | くがつ (九月)
+October | じゅうがつ (十月)
+November | じゅういちがつ (十一月)
+December | じゅうにがつ (十二月)
+1st Floor | いっかい (一階)
+2nd Floor | にかい (二階)
+3rd Floor | さんがい (三階)
+4th Floor | よんかい (四階)
+5th Floor | ごかい (五階)
+6th Floor | ろっかい (六階)
+7th Floor | ななかい (七階)
+8th Floor | はっかい (八階)
+9th Floor | きゅうかい (九階)
+10th Floor | じゅっかい (十階)
