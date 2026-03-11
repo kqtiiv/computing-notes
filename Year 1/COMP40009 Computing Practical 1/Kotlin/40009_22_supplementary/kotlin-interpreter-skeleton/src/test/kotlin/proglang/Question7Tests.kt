@@ -1,13 +1,11 @@
 package proglang
 
-/*
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 import kotlin.test.fail
 
 class Question7Tests {
-
     @Test
     fun `exception if durations and pauses do not match`() {
         try {
@@ -23,10 +21,11 @@ class Question7Tests {
 
     @Test
     fun `message passing 1`() {
-        val program = ConcurrentProgram(
-            listOf(senderThreadBody(), receiverThreadBody()),
-            listOf(10, 5),
-        )
+        val program =
+            ConcurrentProgram(
+                listOf(senderThreadBody(), receiverThreadBody()),
+                listOf(10, 5),
+            )
         for (repeats in 1..10) {
             val finalStore = program.execute(mapOf("data" to 0, "flag" to 0))
             assertEquals(mapOf("data" to 1, "flag" to 1, "observed" to 1), finalStore)
@@ -35,10 +34,11 @@ class Question7Tests {
 
     @Test
     fun `message passing 2`() {
-        val program = ConcurrentProgram(
-            listOf(senderThreadBody(), receiverThreadBody()),
-            listOf(5, 10),
-        )
+        val program =
+            ConcurrentProgram(
+                listOf(senderThreadBody(), receiverThreadBody()),
+                listOf(5, 10),
+            )
         for (repeats in 1..10) {
             val finalStore = program.execute(mapOf("data" to 0, "flag" to 0))
             assertEquals(mapOf("data" to 1, "flag" to 1, "observed" to 1), finalStore)
@@ -47,10 +47,11 @@ class Question7Tests {
 
     @Test
     fun `lots of additions 1`() {
-        val program = ConcurrentProgram(
-            (0..<8).map { lotsOfAdditionsThreadBody() },
-            (0..<8).map { 1 },
-        )
+        val program =
+            ConcurrentProgram(
+                (0..<8).map { lotsOfAdditionsThreadBody() },
+                (0..<8).map { 1 },
+            )
         for (repeats in 1..10) {
             val finalStore = program.execute(mapOf("a" to 0, "b" to 0, "c" to 0))
             assertEquals(mapOf("a" to 8, "b" to 16, "c" to 24), finalStore)
@@ -59,10 +60,11 @@ class Question7Tests {
 
     @Test
     fun `lots of additions 2`() {
-        val program = ConcurrentProgram(
-            (0..<8).map { lotsOfAdditionsThreadBody() },
-            (0..<8).map { it.toLong() },
-        )
+        val program =
+            ConcurrentProgram(
+                (0..<8).map { lotsOfAdditionsThreadBody() },
+                (0..<8).map { it.toLong() },
+            )
         for (repeats in 1..10) {
             val finalStore = program.execute(mapOf("a" to 4, "b" to 4, "c" to 4))
             assertEquals(mapOf("a" to 12, "b" to 20, "c" to 28), finalStore)
@@ -71,10 +73,11 @@ class Question7Tests {
 
     @Test
     fun `zero sum game 1`() {
-        val program = ConcurrentProgram(
-            (0..<4).map { zeroSumGameThreadBody("counter$it") },
-            (0..<4).map { it.toLong() },
-        )
+        val program =
+            ConcurrentProgram(
+                (0..<4).map { zeroSumGameThreadBody("counter$it") },
+                (0..<4).map { it.toLong() },
+            )
         for (repeats in 1..10) {
             val finalStore = program.execute(mapOf("n" to 4, "x" to 3, "y" to 2, "z" to 1))
             val expectedFinalStore = mutableMapOf("n" to 4, "x" to 3, "y" to 2, "z" to 1)
@@ -85,10 +88,11 @@ class Question7Tests {
 
     @Test
     fun `zero sum game 2`() {
-        val program = ConcurrentProgram(
-            (0..<4).map { zeroSumGameThreadBody("counter$it") },
-            (0..<4).map { 1 },
-        )
+        val program =
+            ConcurrentProgram(
+                (0..<4).map { zeroSumGameThreadBody("counter$it") },
+                (0..<4).map { 1 },
+            )
         for (repeats in 1..10) {
             val finalStore = program.execute(mapOf("n" to 5, "x" to 7, "y" to 6, "z" to 1))
             val expectedFinalStore = mutableMapOf("n" to 5, "x" to 7, "y" to 6, "z" to 1)
@@ -99,15 +103,17 @@ class Question7Tests {
 
     @Test
     fun `store buffering 1`() {
-        val program = ConcurrentProgram(
-            listOf(storeBufferingThread1Body(), storeBufferingThread2Body()),
-            listOf(1, 5),
-        )
-        val acceptableFinalStores = setOf(
-            mapOf("x" to 1, "y" to 1, "r0" to 1, "r1" to 0),
-            mapOf("x" to 1, "y" to 1, "r0" to 0, "r1" to 1),
-            mapOf("x" to 1, "y" to 1, "r0" to 1, "r1" to 1),
-        )
+        val program =
+            ConcurrentProgram(
+                listOf(storeBufferingThread1Body(), storeBufferingThread2Body()),
+                listOf(1, 5),
+            )
+        val acceptableFinalStores =
+            setOf(
+                mapOf("x" to 1, "y" to 1, "r0" to 1, "r1" to 0),
+                mapOf("x" to 1, "y" to 1, "r0" to 0, "r1" to 1),
+                mapOf("x" to 1, "y" to 1, "r0" to 1, "r1" to 1),
+            )
 
         for (repeats in 1..100) {
             val finalStore = program.execute(mapOf("x" to 0, "y" to 0))
@@ -117,15 +123,17 @@ class Question7Tests {
 
     @Test
     fun `store buffering 2`() {
-        val program = ConcurrentProgram(
-            listOf(storeBufferingThread1Body(), storeBufferingThread2Body()),
-            listOf(5, 1),
-        )
-        val acceptableFinalStores = setOf(
-            mapOf("x" to 1, "y" to 1, "r0" to 1, "r1" to 0),
-            mapOf("x" to 1, "y" to 1, "r0" to 0, "r1" to 1),
-            mapOf("x" to 1, "y" to 1, "r0" to 1, "r1" to 1),
-        )
+        val program =
+            ConcurrentProgram(
+                listOf(storeBufferingThread1Body(), storeBufferingThread2Body()),
+                listOf(5, 1),
+            )
+        val acceptableFinalStores =
+            setOf(
+                mapOf("x" to 1, "y" to 1, "r0" to 1, "r1" to 0),
+                mapOf("x" to 1, "y" to 1, "r0" to 0, "r1" to 1),
+                mapOf("x" to 1, "y" to 1, "r0" to 1, "r1" to 1),
+            )
 
         for (repeats in 1..100) {
             val finalStore = program.execute(mapOf("x" to 0, "y" to 0))
@@ -135,15 +143,17 @@ class Question7Tests {
 
     @Test
     fun `store buffering 3`() {
-        val program = ConcurrentProgram(
-            listOf(storeBufferingThread1Body(), storeBufferingThread2Body()),
-            listOf(1, 1),
-        )
-        val acceptableFinalStores = setOf(
-            mapOf("x" to 1, "y" to 1, "r0" to 1, "r1" to 0),
-            mapOf("x" to 1, "y" to 1, "r0" to 0, "r1" to 1),
-            mapOf("x" to 1, "y" to 1, "r0" to 1, "r1" to 1),
-        )
+        val program =
+            ConcurrentProgram(
+                listOf(storeBufferingThread1Body(), storeBufferingThread2Body()),
+                listOf(1, 1),
+            )
+        val acceptableFinalStores =
+            setOf(
+                mapOf("x" to 1, "y" to 1, "r0" to 1, "r1" to 0),
+                mapOf("x" to 1, "y" to 1, "r0" to 0, "r1" to 1),
+                mapOf("x" to 1, "y" to 1, "r0" to 1, "r1" to 1),
+            )
 
         for (repeats in 1..100) {
             val finalStore = program.execute(mapOf("x" to 0, "y" to 0))
@@ -249,4 +259,3 @@ class Question7Tests {
             ),
         )
 }
-*/

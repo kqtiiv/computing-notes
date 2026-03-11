@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="proglang.Question7Tests" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-03-11T13:20:13" hostname="KATIEWAN" time="10.237">
+  <properties/>
+  <testcase name="message passing 1" classname="proglang.Question7Tests" time="0.469"/>
+  <testcase name="message passing 2" classname="proglang.Question7Tests" time="0.394"/>
+  <testcase name="store buffering 1" classname="proglang.Question7Tests" time="1.387"/>
+  <testcase name="store buffering 2" classname="proglang.Question7Tests" time="1.317"/>
+  <testcase name="store buffering 3" classname="proglang.Question7Tests" time="0.526"/>
+  <testcase name="lots of additions 1" classname="proglang.Question7Tests" time="0.119"/>
+  <testcase name="lots of additions 2" classname="proglang.Question7Tests" time="0.269"/>
+  <testcase name="exception if durations and pauses do not match" classname="proglang.Question7Tests" time="0.001"/>
+  <testcase name="zero sum game 1" classname="proglang.Question7Tests" time="1.694"/>
+  <testcase name="zero sum game 2" classname="proglang.Question7Tests" time="4.059"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,22 +1,21 @@
 package proglang
 
-/*
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertSame
 import kotlin.test.fail
 
 class Question1Tests {
-
-    private val store: Map<String, Int> = mapOf(
-        "a" to 1,
-        "b" to -2,
-        "c" to 3,
-        "d" to -4,
-        "e" to 5,
-        "f" to -6,
-        "g" to 7,
-    )
+    private val store: Map<String, Int> =
+        mapOf(
+            "a" to 1,
+            "b" to -2,
+            "c" to 3,
+            "d" to -4,
+            "e" to 5,
+            "f" to -6,
+            "g" to 7,
+        )
 
     @Test
     fun `add literals`() {
@@ -252,4 +251,3 @@ class Question1Tests {
         assertEquals("((b / a) * b)! + (e - f) * 14", `((b div a) mul b)! + (e - f) mul 14`.toString())
     }
 }
-*/

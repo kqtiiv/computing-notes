@@ -1,6 +1,5 @@
 package proglang
 
-/*
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
@@ -8,17 +7,17 @@ import kotlin.test.assertTrue
 import kotlin.test.fail
 
 class Question2Tests {
-
-    private val store: Map<String, Int> = mapOf(
-        "a" to 1,
-        "b" to -2,
-        "c" to 3,
-        "d" to -4,
-        "e" to 5,
-        "f" to -6,
-        "g" to 7,
-        "h" to 0,
-    )
+    private val store: Map<String, Int> =
+        mapOf(
+            "a" to 1,
+            "b" to -2,
+            "c" to 3,
+            "d" to -4,
+            "e" to 5,
+            "f" to -6,
+            "g" to 7,
+            "h" to 0,
+        )
 
     @Test
     fun `less than`() {
@@ -77,20 +76,22 @@ class Question2Tests {
     @Test
     fun `and short circuit`() {
         assertFalse(
-            BoolExpr.And(
-                BoolExpr.Not(BoolExpr.Paren(BoolExpr.Equals(IntExpr.Var("h"), IntExpr.Literal(0)))),
-                BoolExpr.Equals(IntExpr.Literal(1), IntExpr.Div(IntExpr.Var("a"), IntExpr.Var("h"))),
-            ).eval(store),
+            BoolExpr
+                .And(
+                    BoolExpr.Not(BoolExpr.Paren(BoolExpr.Equals(IntExpr.Var("h"), IntExpr.Literal(0)))),
+                    BoolExpr.Equals(IntExpr.Literal(1), IntExpr.Div(IntExpr.Var("a"), IntExpr.Var("h"))),
+                ).eval(store),
         )
     }
 
     @Test
     fun `and short circuit exception`() {
         try {
-            BoolExpr.And(
-                BoolExpr.Equals(IntExpr.Var("h"), IntExpr.Literal(0)),
-                BoolExpr.Equals(IntExpr.Literal(1), IntExpr.Div(IntExpr.Var("a"), IntExpr.Var("h"))),
-            ).eval(store)
+            BoolExpr
+                .And(
+                    BoolExpr.Equals(IntExpr.Var("h"), IntExpr.Literal(0)),
+                    BoolExpr.Equals(IntExpr.Literal(1), IntExpr.Div(IntExpr.Var("a"), IntExpr.Var("h"))),
+                ).eval(store)
             fail("Expected UndefinedBehaviourException")
         } catch (_: UndefinedBehaviourException) {
             // Good: an exception was expected.
@@ -100,20 +101,22 @@ class Question2Tests {
     @Test
     fun `or short circuit`() {
         assertTrue(
-            BoolExpr.Or(
-                BoolExpr.Equals(IntExpr.Var("h"), IntExpr.Literal(0)),
-                BoolExpr.Equals(IntExpr.Literal(1), IntExpr.Div(IntExpr.Var("a"), IntExpr.Var("h"))),
-            ).eval(store),
+            BoolExpr
+                .Or(
+                    BoolExpr.Equals(IntExpr.Var("h"), IntExpr.Literal(0)),
+                    BoolExpr.Equals(IntExpr.Literal(1), IntExpr.Div(IntExpr.Var("a"), IntExpr.Var("h"))),
+                ).eval(store),
         )
     }
 
     @Test
     fun `or short circuit exception`() {
         try {
-            BoolExpr.Or(
-                BoolExpr.Not(BoolExpr.Equals(IntExpr.Var("h"), IntExpr.Literal(0))),
-                BoolExpr.Equals(IntExpr.Literal(1), IntExpr.Div(IntExpr.Var("a"), IntExpr.Var("h"))),
-            ).eval(store)
+            BoolExpr
+                .Or(
+                    BoolExpr.Not(BoolExpr.Equals(IntExpr.Var("h"), IntExpr.Literal(0))),
+                    BoolExpr.Equals(IntExpr.Literal(1), IntExpr.Div(IntExpr.Var("a"), IntExpr.Var("h"))),
+                ).eval(store)
             fail("Expected UndefinedBehaviourException")
         } catch (_: UndefinedBehaviourException) {
             // Good: an exception was expected.
@@ -178,10 +181,11 @@ class Question2Tests {
     fun `and short circuit toString`() {
         assertEquals(
             "!(h == 0) && 1 == a / h",
-            BoolExpr.And(
-                BoolExpr.Not(BoolExpr.Paren(BoolExpr.Equals(IntExpr.Var("h"), IntExpr.Literal(0)))),
-                BoolExpr.Equals(IntExpr.Literal(1), IntExpr.Div(IntExpr.Var("a"), IntExpr.Var("h"))),
-            ).toString(),
+            BoolExpr
+                .And(
+                    BoolExpr.Not(BoolExpr.Paren(BoolExpr.Equals(IntExpr.Var("h"), IntExpr.Literal(0)))),
+                    BoolExpr.Equals(IntExpr.Literal(1), IntExpr.Div(IntExpr.Var("a"), IntExpr.Var("h"))),
+                ).toString(),
         )
     }
 
@@ -189,11 +193,11 @@ class Question2Tests {
     fun `or short circuit toString`() {
         assertEquals(
             "h == 0 || 1 == a / h",
-            BoolExpr.Or(
-                BoolExpr.Equals(IntExpr.Var("h"), IntExpr.Literal(0)),
-                BoolExpr.Equals(IntExpr.Literal(1), IntExpr.Div(IntExpr.Var("a"), IntExpr.Var("h"))),
-            ).toString(),
+            BoolExpr
+                .Or(
+                    BoolExpr.Equals(IntExpr.Var("h"), IntExpr.Literal(0)),
+                    BoolExpr.Equals(IntExpr.Literal(1), IntExpr.Div(IntExpr.Var("a"), IntExpr.Var("h"))),
+                ).toString(),
         )
     }
 }
-*/

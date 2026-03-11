@@ -1,12 +1,10 @@
 package proglang
 
-/*
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.fail
 
 class Question5Tests {
-
     @Test
     fun `program 1 execution good`() {
         val store = mapOf("b" to 3, "c" to 24)
@@ -30,12 +28,13 @@ class Question5Tests {
 
     @Test
     fun `program 1 toString`() {
-        val expected: String = """
+        val expected: String =
+            """
             a = b
             b = 12
             c = c / a
 
-        """.trimIndent()
+            """.trimIndent()
         assertEquals(expected, program1().toString())
     }
 
@@ -62,14 +61,15 @@ class Question5Tests {
 
     @Test
     fun `program 2 toString`() {
-        val expected: String = """
+        val expected: String =
+            """
             x = (a + b) * c
             y = x - c!
             a = 0
             b = 1 + a
             c = (2 + b)
 
-        """.trimIndent()
+            """.trimIndent()
         assertEquals(expected, program2().toString())
     }
 
@@ -116,7 +116,8 @@ class Question5Tests {
 
     @Test
     fun `program 3 toString`() {
-        val expected: String = """
+        val expected: String =
+            """
             if (a < 0) {
                 b = 42
                 b = b + 1
@@ -128,7 +129,7 @@ class Question5Tests {
                 }
             }
 
-        """.trimIndent()
+            """.trimIndent()
         assertEquals(expected, program3().toString())
     }
 
@@ -175,7 +176,8 @@ class Question5Tests {
 
     @Test
     fun `program 4 toString`() {
-        val expected: String = """
+        val expected: String =
+            """
             if (a < 0) {
                 b = 42
                 b = b + 1
@@ -187,7 +189,7 @@ class Question5Tests {
             }
             d = 12
 
-        """.trimIndent()
+            """.trimIndent()
         assertEquals(expected, program4().toString())
     }
 
@@ -244,7 +246,8 @@ class Question5Tests {
 
     @Test
     fun `program 5 toString`() {
-        val expected: String = """
+        val expected: String =
+            """
             if (a < b) {
                 tick = tick + 1
                 if (c < d) {
@@ -263,139 +266,143 @@ class Question5Tests {
                 }
             }
 
-        """.trimIndent()
+            """.trimIndent()
         assertEquals(expected, program5().toString())
     }
 
-    private fun program1(): SequentialProgram = SequentialProgram(
-        Stmt.Assign(
-            "a",
-            IntExpr.Var("b"),
+    private fun program1(): SequentialProgram =
+        SequentialProgram(
             Stmt.Assign(
-                "b",
-                IntExpr.Literal(12),
+                "a",
+                IntExpr.Var("b"),
                 Stmt.Assign(
-                    "c",
-                    IntExpr.Div(
-                        IntExpr.Var("c"),
-                        IntExpr.Var("a"),
-                    ),
-                ),
-            ),
-        ),
-    )
-
-    private fun program2(): SequentialProgram = SequentialProgram(
-        Stmt.Assign(
-            "x",
-            IntExpr.Mul(
-                IntExpr.Paren(
-                    IntExpr.Add(
-                        IntExpr.Var("a"),
-                        IntExpr.Var("b"),
-                    ),
-                ),
-                IntExpr.Var("c"),
-            ),
-            Stmt.Assign(
-                "y",
-                IntExpr.Sub(
-                    IntExpr.Var("x"),
-                    IntExpr.Fact(
-                        IntExpr.Var("c"),
-                    ),
-                ),
-                Stmt.Assign(
-                    "a",
-                    IntExpr.Literal(0),
+                    "b",
+                    IntExpr.Literal(12),
                     Stmt.Assign(
-                        "b",
-                        IntExpr.Add(
-                            IntExpr.Literal(1),
+                        "c",
+                        IntExpr.Div(
+                            IntExpr.Var("c"),
                             IntExpr.Var("a"),
                         ),
+                    ),
+                ),
+            ),
+        )
+
+    private fun program2(): SequentialProgram =
+        SequentialProgram(
+            Stmt.Assign(
+                "x",
+                IntExpr.Mul(
+                    IntExpr.Paren(
+                        IntExpr.Add(
+                            IntExpr.Var("a"),
+                            IntExpr.Var("b"),
+                        ),
+                    ),
+                    IntExpr.Var("c"),
+                ),
+                Stmt.Assign(
+                    "y",
+                    IntExpr.Sub(
+                        IntExpr.Var("x"),
+                        IntExpr.Fact(
+                            IntExpr.Var("c"),
+                        ),
+                    ),
+                    Stmt.Assign(
+                        "a",
+                        IntExpr.Literal(0),
                         Stmt.Assign(
-                            "c",
-                            IntExpr.Paren(
-                                IntExpr.Add(
-                                    IntExpr.Literal(2),
-                                    IntExpr.Var("b"),
+                            "b",
+                            IntExpr.Add(
+                                IntExpr.Literal(1),
+                                IntExpr.Var("a"),
+                            ),
+                            Stmt.Assign(
+                                "c",
+                                IntExpr.Paren(
+                                    IntExpr.Add(
+                                        IntExpr.Literal(2),
+                                        IntExpr.Var("b"),
+                                    ),
                                 ),
                             ),
                         ),
                     ),
                 ),
             ),
-        ),
-    )
+        )
 
-    private fun program3(): SequentialProgram = SequentialProgram(
-        Stmt.If(
-            BoolExpr.LessThan(IntExpr.Var("a"), IntExpr.Literal(0)),
-            Stmt.Assign(
-                "b",
-                IntExpr.Literal(42),
-                Stmt.Assign("b", IntExpr.Add(IntExpr.Var("b"), IntExpr.Literal(1))),
-            ),
+    private fun program3(): SequentialProgram =
+        SequentialProgram(
             Stmt.If(
-                BoolExpr.GreaterThan(IntExpr.Var("a"), IntExpr.Var("b")),
-                Stmt.Assign("c", IntExpr.Literal(42)),
-                Stmt.Assign("c", IntExpr.Sub(IntExpr.Literal(0), IntExpr.Literal(42))),
-            ),
-        ),
-    )
-
-    private fun program4(): SequentialProgram = SequentialProgram(
-        Stmt.If(
-            BoolExpr.LessThan(IntExpr.Var("a"), IntExpr.Literal(0)),
-            Stmt.Assign(
-                "b",
-                IntExpr.Literal(42),
+                BoolExpr.LessThan(IntExpr.Var("a"), IntExpr.Literal(0)),
                 Stmt.Assign(
                     "b",
-                    IntExpr.Add(
-                        IntExpr.Var("b"),
-                        IntExpr.Literal(1),
-                    ),
+                    IntExpr.Literal(42),
+                    Stmt.Assign("b", IntExpr.Add(IntExpr.Var("b"), IntExpr.Literal(1))),
+                ),
+                Stmt.If(
+                    BoolExpr.GreaterThan(IntExpr.Var("a"), IntExpr.Var("b")),
+                    Stmt.Assign("c", IntExpr.Literal(42)),
+                    Stmt.Assign("c", IntExpr.Sub(IntExpr.Literal(0), IntExpr.Literal(42))),
                 ),
             ),
-            null,
-            Stmt.If(
-                BoolExpr.GreaterThan(IntExpr.Var("a"), IntExpr.Var("b")),
-                Stmt.Assign("c", IntExpr.Literal(42)),
-                Stmt.Assign("c", IntExpr.Sub(IntExpr.Literal(0), IntExpr.Literal(42))),
-                Stmt.Assign("d", IntExpr.Literal(12)),
-            ),
-        ),
-    )
+        )
 
-    private fun program5(): SequentialProgram = SequentialProgram(
-        Stmt.If(
-            BoolExpr.LessThan(IntExpr.Var("a"), IntExpr.Var("b")),
-            Stmt.Assign(
-                "tick",
-                IntExpr.Add(IntExpr.Var("tick"), IntExpr.Literal(1)),
-                Stmt.If(
-                    BoolExpr.LessThan(IntExpr.Var("c"), IntExpr.Var("d")),
+    private fun program4(): SequentialProgram =
+        SequentialProgram(
+            Stmt.If(
+                BoolExpr.LessThan(IntExpr.Var("a"), IntExpr.Literal(0)),
+                Stmt.Assign(
+                    "b",
+                    IntExpr.Literal(42),
                     Stmt.Assign(
-                        "tick",
-                        IntExpr.Add(IntExpr.Var("tick"), IntExpr.Literal(1)),
-                        Stmt.If(
-                            BoolExpr.LessThan(IntExpr.Var("e"), IntExpr.Var("f")),
-                            Stmt.Assign("tick", IntExpr.Add(IntExpr.Var("tick"), IntExpr.Literal(1))),
-                            Stmt.If(
-                                BoolExpr.GreaterThan(IntExpr.Var("a"), IntExpr.Var("b")),
-                                Stmt.Assign("tick", IntExpr.Var("unreachable")),
-                            ),
+                        "b",
+                        IntExpr.Add(
+                            IntExpr.Var("b"),
+                            IntExpr.Literal(1),
                         ),
                     ),
+                ),
+                null,
+                Stmt.If(
+                    BoolExpr.GreaterThan(IntExpr.Var("a"), IntExpr.Var("b")),
+                    Stmt.Assign("c", IntExpr.Literal(42)),
+                    Stmt.Assign("c", IntExpr.Sub(IntExpr.Literal(0), IntExpr.Literal(42))),
+                    Stmt.Assign("d", IntExpr.Literal(12)),
+                ),
+            ),
+        )
+
+    private fun program5(): SequentialProgram =
+        SequentialProgram(
+            Stmt.If(
+                BoolExpr.LessThan(IntExpr.Var("a"), IntExpr.Var("b")),
+                Stmt.Assign(
+                    "tick",
+                    IntExpr.Add(IntExpr.Var("tick"), IntExpr.Literal(1)),
                     Stmt.If(
                         BoolExpr.LessThan(IntExpr.Var("c"), IntExpr.Var("d")),
-                        Stmt.Assign("tick", IntExpr.Div(IntExpr.Literal(0), IntExpr.Literal(0))),
+                        Stmt.Assign(
+                            "tick",
+                            IntExpr.Add(IntExpr.Var("tick"), IntExpr.Literal(1)),
+                            Stmt.If(
+                                BoolExpr.LessThan(IntExpr.Var("e"), IntExpr.Var("f")),
+                                Stmt.Assign("tick", IntExpr.Add(IntExpr.Var("tick"), IntExpr.Literal(1))),
+                                Stmt.If(
+                                    BoolExpr.GreaterThan(IntExpr.Var("a"), IntExpr.Var("b")),
+                                    Stmt.Assign("tick", IntExpr.Var("unreachable")),
+                                ),
+                            ),
+                        ),
+                        Stmt.If(
+                            BoolExpr.LessThan(IntExpr.Var("c"), IntExpr.Var("d")),
+                            Stmt.Assign("tick", IntExpr.Div(IntExpr.Literal(0), IntExpr.Literal(0))),
+                        ),
                     ),
                 ),
             ),
-        ),
-    )
+        )
 }
-*/
