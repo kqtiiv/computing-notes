@@ -1,14 +1,10 @@
 package textfiles
 
-/*
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.fail
- */
 
 class Question3Tests {
-
-/*
     @Test
     fun testLength1() {
         val textFile: TextFile = LazyTextFile(SingleStringTextFile(""))
@@ -23,11 +19,12 @@ class Question3Tests {
 
     @Test
     fun testLength3() {
-        val textFile: TextFile = LazyTextFile(
-            SingleStringTextFile(
-                "The quick brown fox jumped over the lazy dog ten times today",
-            ),
-        )
+        val textFile: TextFile =
+            LazyTextFile(
+                SingleStringTextFile(
+                    "The quick brown fox jumped over the lazy dog ten times today",
+                ),
+            )
         assertEquals(60, textFile.length)
     }
 
@@ -142,11 +139,12 @@ class Question3Tests {
 
     @Test
     fun testDelete6() {
-        val textFile: TextFile = LazyTextFile(
-            SingleStringTextFile(
-                "The quick brown fox jumped over the lazy dog ten times today",
-            ),
-        )
+        val textFile: TextFile =
+            LazyTextFile(
+                SingleStringTextFile(
+                    "The quick brown fox jumped over the lazy dog ten times today",
+                ),
+            )
         textFile.deleteText(3, 43)
         assertEquals("Theen times today", textFile.toString())
     }
@@ -273,7 +271,6 @@ class Question3Tests {
     }
 
     class OperationCountingTextFile : TextFile {
-
         var numInsertions = 0
             private set
 
@@ -283,13 +280,18 @@ class Question3Tests {
         override val length: Int
             get() = 1000
 
-        override fun insertText(offset: Int, toInsert: String) {
+        override fun insertText(
+            offset: Int,
+            toInsert: String,
+        ) {
             numInsertions++
         }
 
-        override fun deleteText(offset: Int, size: Int) {
+        override fun deleteText(
+            offset: Int,
+            size: Int,
+        ) {
             numDeletions++
         }
     }
- */
 }

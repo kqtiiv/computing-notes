@@ -1,13 +1,10 @@
 package textfiles
 
-/*
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
- */
 
 class Question5Tests {
-/*
     @Test
     fun testCompareTo1() {
         val t1: TextFile = SingleStringTextFile("Hello")
@@ -55,5 +52,4 @@ class Question5Tests {
         assertTrue(t1 < t2)
         assertTrue(t2 > t1)
     }
- */
 }

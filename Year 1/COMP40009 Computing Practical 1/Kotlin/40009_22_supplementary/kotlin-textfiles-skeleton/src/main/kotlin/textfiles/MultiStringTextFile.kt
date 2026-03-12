@@ -2,8 +2,9 @@ package textfiles
 
 private const val BLOCK_SIZE: Int = 8
 
-class MultiStringTextFile(initialContents: String) : TextFile {
-
+class MultiStringTextFile(
+    initialContents: String,
+) : TextFile {
     private var blocks: MutableList<StringBuilder> = mutableListOf(StringBuilder(initialContents))
 
     /**
@@ -15,7 +16,7 @@ class MultiStringTextFile(initialContents: String) : TextFile {
         get() = blocks.size
 
     override val length: Int
-        get() = TODO("To be implemented.")
+        get() = blocks.sumOf { it.length }
 
     init {
         rebalance()
@@ -26,14 +27,63 @@ class MultiStringTextFile(initialContents: String) : TextFile {
      * into blocks of equal size, except that the final block may be shorter.
      */
     fun rebalance() {
-        TODO("To be implemented.")
+        val combinedTxt: StringBuilder = StringBuilder()
+        blocks.forEach { combinedTxt.append(it) }
+
+        val newBlocks: MutableList<StringBuilder> = mutableListOf()
+        val curString = StringBuilder()
+        var counter = 0
+        for (char in combinedTxt) {
+            if (counter == BLOCK_SIZE) {
+                newBlocks += StringBuilder(curString)
+                curString.clear()
+                counter = 0
+            }
+            curString.append(char)
+            counter++
+        }
+
+        if (counter > 0) {
+            newBlocks += curString
+        }
+
+        blocks = newBlocks
     }
 
-    override fun insertText(offset: Int, toInsert: String) {
-        TODO("To be implemented.")
+    override fun insertText(
+        offset: Int,
+        toInsert: String,
+    ) {
+        when (offset) {
+            in 0 until length -> {
+                var offset = offset
+                var blockIndex = 0
+                var block = 0
+                while (offset != 0) {
+                    blockIndex++
+                    offset--
+                    if (blockIndex == blocks[block].length) {
+                        block++
+                        blockIndex = 0
+                    }
+                }
+                blocks[block].insert(blockIndex, toInsert)
+            }
+
+            length -> {
+                blocks += StringBuilder(toInsert)
+            }
+
+            else -> {
+                throw FileIndexOutOfBoundsException()
+            }
+        }
     }
 
-    override fun deleteText(offset: Int, size: Int) {
+    override fun deleteText(
+        offset: Int,
+        size: Int,
+    ) {
         if (offset < 0 || size < 0) {
             throw FileIndexOutOfBoundsException()
         }
@@ -83,4 +133,6 @@ class MultiStringTextFile(initialContents: String) : TextFile {
         }
         blocks = newBlocks
     }
+
+    override fun toString(): String = buildString { blocks.forEach { append(it) } }
 }

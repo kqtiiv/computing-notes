@@ -1,13 +1,10 @@
 package textfiles
 
-/*
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.fail
- */
 
 class Question1Tests {
-/*
     @Test
     fun testLength1() {
         val textFile: TextFile = SingleStringTextFile("")
@@ -185,5 +182,4 @@ class Question1Tests {
         }
         fail()
     }
- */
 }

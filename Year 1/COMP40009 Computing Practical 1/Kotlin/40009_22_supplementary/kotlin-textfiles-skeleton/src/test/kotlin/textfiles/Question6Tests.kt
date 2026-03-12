@@ -1,14 +1,11 @@
 package textfiles
 
-/*
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
 import kotlin.test.assertSame
- */
 
 class Question6Tests {
-/*
     private val file1: TextFile = SingleStringTextFile("File1Contents")
     private val file2: TextFile = SingleStringTextFile("File2Contents")
     private val file3: TextFile = SingleStringTextFile("File3Contents")
@@ -194,5 +191,4 @@ class Question6Tests {
             assertSame(files[i], fileMap.get("f$i"))
         }
     }
- */
 }

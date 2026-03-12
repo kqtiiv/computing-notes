@@ -1,13 +1,10 @@
 package textfiles
 
-/*
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.fail
- */
 
 class Question2Tests {
-/*
     @Test
     fun testLength1() {
         val textFile: TextFile = MultiStringTextFile("")
@@ -22,9 +19,10 @@ class Question2Tests {
 
     @Test
     fun testLength3() {
-        val textFile: TextFile = MultiStringTextFile(
-            "The quick brown fox jumped over the lazy dog ten times today",
-        )
+        val textFile: TextFile =
+            MultiStringTextFile(
+                "The quick brown fox jumped over the lazy dog ten times today",
+            )
         assertEquals(60, textFile.length)
     }
 
@@ -136,9 +134,10 @@ class Question2Tests {
 
     @Test
     fun testDelete6() {
-        val textFile: TextFile = MultiStringTextFile(
-            "The quick brown fox jumped over the lazy dog ten times today",
-        )
+        val textFile: TextFile =
+            MultiStringTextFile(
+                "The quick brown fox jumped over the lazy dog ten times today",
+            )
         textFile.deleteText(3, 43)
         assertEquals("Theen times today", textFile.toString())
     }
@@ -213,9 +212,10 @@ class Question2Tests {
 
     @Test
     fun testGetNumBlocksAndRebalance2() {
-        val textFile = MultiStringTextFile(
-            "AKAI Professional MPK249 midi controller does not act as a stand-alone synthesizer, unfortunately.",
-        )
+        val textFile =
+            MultiStringTextFile(
+                "AKAI Professional MPK249 midi controller does not act as a stand-alone synthesizer, unfortunately.",
+            )
         assertEquals(13, textFile.numBlocks)
         textFile.rebalance()
         assertEquals(13, textFile.numBlocks)
@@ -250,5 +250,4 @@ class Question2Tests {
         assertEquals(2, textFile.numBlocks)
         assertEquals("Hamonio", textFile.toString())
     }
- */
 }

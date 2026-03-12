@@ -1,6 +1,6 @@
 package textfiles
 
-interface TextFile {
+interface TextFile : Comparable<TextFile> {
     /**
      * Provides the length of the text file.
      *
@@ -16,7 +16,10 @@ interface TextFile {
      * @throws FileIndexOutOfBoundsException if offset is negative or larger
      *  than the length of the file
      */
-    fun insertText(offset: Int, toInsert: String)
+    fun insertText(
+        offset: Int,
+        toInsert: String,
+    )
 
     /**
      * Deletes text from the file.
@@ -26,5 +29,10 @@ interface TextFile {
      * @throws FileIndexOutOfBoundsException if offset or size is negative, or
      *  if offset + size is larger than the length of the file
      */
-    fun deleteText(offset: Int, size: Int)
+    fun deleteText(
+        offset: Int,
+        size: Int,
+    )
+
+    override fun compareTo(other: TextFile): Int = toString().compareTo(other.toString())
 }
