@@ -16,7 +16,7 @@ class OptimisedUser(
     override val lock: Lock = ReentrantLock()
 
     init {
-        require(yearOfBirth in 1900..2100)
+        require(yearOfBirth in MIN_YEAR_OF_BIRTH..MAX_YEAR_OF_BIRTH)
     }
 
     override fun considerFriendRequest(candidateFriend: User): Boolean =

@@ -44,20 +44,8 @@ class Question7Tests {
                 yearOfBirth = 1900,
                 bio = "spidery",
             )
-        val user2 =
-            SimpleUser(
-                userName = "MrMelchor",
-                yearOfBirth = 1900,
-                bio = "wizardy",
-            )
-        val user3 =
-            SimpleUser(
-                userName = "Sauron",
-                yearOfBirth = 1964,
-                bio = "mordorish",
-            )
         matchmaker.tryMatching(user1, user1)
-        assertEquals(listOf(user1), user1.currentFriends)
+        assertEquals(listOf(), user1.currentFriends)
     }
 
     @Test

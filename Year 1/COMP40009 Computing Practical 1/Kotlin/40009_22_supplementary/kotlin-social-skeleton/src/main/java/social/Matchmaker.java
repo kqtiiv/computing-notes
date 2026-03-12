@@ -10,7 +10,7 @@ public final class Matchmaker {
     }
 
     public void tryMatching(User user1, User user2) {
-        if (user1 == user2) return;
+        if (user1.getUserName().equals(user2.getUserName())) return;
 
         boolean user1First = user1.getUserName().compareTo(user2.getUserName()) < 0;
 

@@ -1,11 +1,9 @@
 package social
 
-import kotlin.collections.any
-
 fun standardStrategy(
     targetUser: User,
     candidateUser: User,
-): Boolean = !targetUser.currentFriends.any { it.userName == candidateUser.userName }
+): Boolean = !targetUser.hasFriend(candidateUser)
 
 fun unfriendlyStrategy(
     targetUser: User,
@@ -15,22 +13,21 @@ fun unfriendlyStrategy(
 fun limitOfFiveStrategy(
     targetUser: User,
     candidateUser: User,
-): Boolean =
-    if (standardStrategy(targetUser, candidateUser)) {
-        while (targetUser.currentFriends.size >= 5) {
-            targetUser.removeLongestStandingFriend()
-        }
-        true
-    } else {
-        false
+): Boolean = standardStrategy(targetUser, candidateUser) && removeUntilFive(targetUser)
+
+private fun removeUntilFive(targetUser: User): Boolean {
+    while (targetUser.currentFriends.size >= 5) {
+        targetUser.removeLongestStandingFriend()
     }
+    return true
+}
 
 fun interestedInDogsStrategy(
     targetUser: User,
     candidateUser: User,
 ): Boolean =
-    if (standardStrategy(targetUser, candidateUser)) {
-        candidateUser.bio.lowercase().contains("dog")
-    } else {
-        false
-    }
+    standardStrategy(targetUser, candidateUser) &&
+        candidateUser.bio
+            .lowercase()
+            .split(" ")
+            .contains("dog")

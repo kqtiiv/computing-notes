@@ -31,7 +31,7 @@ class HashMapLinked<K, V> : OrderedMap<K, V> {
             val vals: MutableList<V> = mutableListOf()
             var cur: Node<K, V>? = head
             while (cur != null) {
-                vals.add(cur.value)
+                vals += cur.value
                 cur = cur.next
             }
             return vals
@@ -47,9 +47,12 @@ class HashMapLinked<K, V> : OrderedMap<K, V> {
 
         if (cur == head) head = cur.next
         if (cur == tail) tail = cur.prev
+
         cur.prev?.next = cur.next
         cur.next?.prev = cur.prev
+
         size--
+
         return cur.value
     }
 
@@ -74,10 +77,7 @@ class HashMapLinked<K, V> : OrderedMap<K, V> {
         return removed
     }
 
-    override fun removeLongestStandingEntry(): Pair<K, V>? =
-        head?.let { oldHead ->
-            remove(oldHead.key)?.let { oldHead.key to it }
-        }
+    override fun removeLongestStandingEntry(): Pair<K, V>? = head?.let { it.key to remove(it.key)!! }
 
     private fun getBucket(key: K) = buckets[key.hashCode().mod(buckets.size)]
 
