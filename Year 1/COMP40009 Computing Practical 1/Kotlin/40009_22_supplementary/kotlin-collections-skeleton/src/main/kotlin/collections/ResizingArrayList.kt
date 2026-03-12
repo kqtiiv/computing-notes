@@ -109,23 +109,10 @@ class ResizingArrayList<T>(
         return removed
     }
 
-    override fun toString(): String {
-        val result = StringBuilder()
-        result.append("[")
-        var curIndex = 0
-        var first = true
-        while (curIndex != size && elements[curIndex] != null) {
-            if (!first) {
-                result.append(", ")
-            }
-            first = false
-            result.append(elements[curIndex])
-            curIndex++
-        }
-
-        result.append("]")
-        return result.toString()
-    }
+    override fun toString(): String =
+        elements
+            .slice(0..<size)
+            .joinToString(", ", "[", "]")
 
     private fun checkIndexInBounds(
         index: Int,
