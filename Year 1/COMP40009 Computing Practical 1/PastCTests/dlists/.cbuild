@@ -1,0 +1,19 @@
+CFLAGS = -g -Wall -I.
+
+# if you can't get person.c working:
+# cb --clean, then:
+# mv person.c to person.c-brokensolution
+# then edit this file and add " -llabperson" to LDLIBS
+#
+# if you can't get list.c working:
+# cb --clean, then:
+# mv list.c to list.c-brokensolution
+# then edit this file and add " -llablist" to LDLIBS
+# so, if you couldn't get either to work, you might end up with
+# LDLIBS = -L. -lio -llablist -llabperson
+
+LDLIBS = -L. -lio
+
+BUILD = testlist testplist testperson testdepartment testdlist testageinfo readdata
+
+TEST1 = ./summarisetests --max 10 ./testperson ./testlist ./testplist ./testdepartment ./testdlist ./testageinfo

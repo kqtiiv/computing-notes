@@ -1,0 +1,62 @@
+This directory contains the materials for CFT2324: Department Lists..
+
+.cbuild:	a CBuild input file that specifies what to compile.
+
+person.[ch]:	an incomplete "a person has title, firstname, lastname, age"
+
+testperson.c:	unit test for person
+
+list.[ch]:	an incomplete "generic singly linked sorted list" module
+
+testlist.c:	unit test for list (generic linked lists) module
+
+plist.[ch]:	module to make creating linked lists of people easier
+
+testplist.c:	unit test for plists (linked lists of people)
+
+department.[ch]: "a department has a name and a list of members (people)"
+
+testdepartment.c: unit test for department
+
+dlist.[ch]: 	a module to make creating linked lists of departments easier
+
+testdlist.c: 	unit test for dlists
+
+testutils.[ch]:	my simple Unit test utility module (from lectures)
+
+summarisetests:	my Perl test summariser (from lectures)
+
+
+THEN some code that uses dlists:
+
+DATA:  a data file containing lines of the form: DEPT,TITLE,FIRSTNAME,LASTNAME,AGE
+
+io.h:		interface to module that reads a line from a file and then
+		splits it into an array of fields.
+
+libio.a:	the implementation of the io module, supplied as a library
+		(no source code)
+
+ageinfo.[ch]: a module that calculates the average age of all the members
+	in each department in the dlist.
+
+testageinfo.c: a unit test program for ageinfo
+
+readdata.c: a program that reads a file like DATA, splits each line up into
+	it's 5 fields, and then constructs a dlist containing all those depts
+	and all those people, then uses ageinfo functions to calculate
+	average people ages per department, and then frees everything -
+	valgrind should show no memory leaks after running this.
+
+Compile everything via cb and then run:
+
+./testperson
+./testplist
+./testdepartment
+./readdata < DATA
+valgrind ./readdata < DATA
+
+To generalise a module structure visualization, I did:
+
+cb --modulestructure | grep -v test | grep -vw io | grep -vw common | graphpairs module
+gv module.eps &
