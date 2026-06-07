@@ -1,0 +1,5 @@
+TESTS	=	testcheck
+BUILD	=	$(TESTS)
+CFLAGS	=	-Wall -g -I../lib
+LDFLAGS =	-L../lib -lsupport -ltermcap
+TEST1	=	../summarisetests $(TESTS)

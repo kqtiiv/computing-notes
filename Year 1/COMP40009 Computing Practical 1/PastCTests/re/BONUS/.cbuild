@@ -1,0 +1,3 @@
+BUILD	=	searchstr testmakefsm testmatch
+CFLAGS	=	-Wall -g -I../lib
+LDFLAGS =	-L../lib -lsupport -ltermcap

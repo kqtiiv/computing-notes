@@ -1,0 +1,12 @@
+- this directory contains the skeleton for part 1
+  of the simple regex FSM matcher final test
+
+- Files include:
+
+checkregex.[ch]:	Code to check a regex for banned combinations
+			- skeleton for you to complete
+testcheck.c:		Unit test program for checkregex module
+.cbuild:		Custom CB config file to build the unit test
+			program and link it with the support library.
+
+- we also depend on ../lib/*, look in there for (eg) regex.h

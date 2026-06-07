@@ -1,0 +1,51 @@
+- this directory contains the skeleton for the simple regex
+  Finite-State-Machine based matcher final test.
+
+- Files include:
+
+labsearchstr:		pre-compiled sample solution of searchstr
+summarisetests:		my C-Tools unit test summariser
+
+Part1/README:		readme file for Part 1
+Part1/checkregex.[ch]:	check regex for banned combinations - skeleton
+Part1/testcheck.c:	Unit test program for checkregex module
+Part1/.cbuild:		Custom CB config file
+
+Part2/README:		readme file for Part 2
+Part2/fsm.[ch]:		Finite State Machine module - skeleton
+Part2/testfsm.c:	Unit test program for fsm module
+Part2/.cbuild:		Custom CB config file
+Part2/token.[ch]:	Token related definitions and utilities
+
+Part3/README:		readme file for Part 3
+Part3/makefsm.[ch]:	RE to FSM convertor module - skeleton
+Part3/testmakefsm.c:	Unit test program for makefsm module
+Part3/match.[ch]:	regex string matching and reporting code
+Part3/testmatch.c:	Unit test program for match module
+Part3/searchstr.c:	Match a regex to a string on the command line
+Part3/.cbuild:		Custom CB config file
+
+BONUS/copyin:		Shell script to copy *.[ch] files from PartN/
+BONUS/.cbuild:		Custom CB config file.
+
+lib/*:			many .h files and a library libsupport.a
+			containing many pre-compiled modules (eg
+			regex.o, checkregex.o, fsm.o, makefsm.o and
+			a support module called emphasize.o).
+			Note that the source code for lib is not
+			available to you.
+
+
+Possible invocations of labsearchstr you might like to try:
+
+./labsearchstr 'hello' "hell helloo there"
+./labsearchstr 'hello' "hell halloo there"
+./labsearchstr '^hello' "hell halloo there"
+./labsearchstr '^hello' "helloo there"
+./labsearchstr 'he?llo?' "hell halloo there"
+./labsearchstr 'he?llo?' "hll halloo there"
+./labsearchstr '^he?llo?' "hll halloo there"
+./labsearchstr 'h[eua]l+o*' "hell halloo there"
+./labsearchstr '^h[eua]l+o*' "hell halloo there"
+./labsearchstr 'h[eua]l+o+' "hell halloo there"
+./labsearchstr '^h[eua]l+o+' "hellooooo halloo there"

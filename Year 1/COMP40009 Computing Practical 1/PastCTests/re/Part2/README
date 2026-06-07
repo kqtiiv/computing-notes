@@ -1,0 +1,17 @@
+- this directory contains the skeleton for part 2
+  of the simple regex FSM matcher final test
+
+- specifically, this is an incomplete version of a Finite State
+  Machine framework module that can be used for many purposes,
+  but here we'll use it to implement regex pattern matching
+  efficiently.
+
+- Files include:
+
+fsm.[ch]:	Finite State Machine module - fsm.c is a skeleton.
+testfsm.c:	Unit test program for fsm module.
+token.[ch]:	Tokens and token acceptor function.
+.cbuild:	Custom CB config file to compile the test program(s)
+		and link them with the support library.
+
+- we also depend on ../lib/*, look in there for (eg) regex.h

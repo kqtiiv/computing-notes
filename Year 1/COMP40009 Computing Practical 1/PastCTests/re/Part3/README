@@ -1,0 +1,17 @@
+- this directory contains the skeleton for part 3 of the simple regex
+  "compile a regex to an FSM and do matching using that"
+
+- Files include:
+
+makefsm.[ch]:	RE to FSM convertor module - skeleton for you to complete
+testmakefsm.c:	Unit test program for makefsm module
+match.[ch]:	pattern matching using FSMs module
+searchstr.c:	main program that uses regex ADT, parsing, constructing a FSM
+		and running it to match a regex against a string
+.cbuild:	Custom CB config file to compile the main programs
+		and link each against makefsm.o and match.o here, along with
+		the (sample solution) regex.o and checkregex.o
+		from the support library.
+
+- we also depend on ../lib/*, look in there for (eg) regex.h and token.h and
+  everything else provided..
