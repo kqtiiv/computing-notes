@@ -13,7 +13,7 @@ class StripedHashmap<K, V>(
 
     private val locks: Array<Lock> = Array(DEFAULT_BUCKET_SIZE) { ReentrantLock() }
 
-    private val _size = AtomicInteger(0)
+    private val _size = AtomicInteger()
 
     override val size: Int
         get() = _size.get()

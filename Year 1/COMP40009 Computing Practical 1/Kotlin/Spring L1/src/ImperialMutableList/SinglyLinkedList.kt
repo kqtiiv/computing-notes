@@ -68,7 +68,7 @@ class SinglyLinkedList<T> : ImperialMutableList<T> {
         }
         val (previous: Node<T>?, current: Node<T>) = traverseTo(index)
         unlink(previous, current)
-        return true
+        return current.element
     }
 
     override fun remove(element: T): Boolean {

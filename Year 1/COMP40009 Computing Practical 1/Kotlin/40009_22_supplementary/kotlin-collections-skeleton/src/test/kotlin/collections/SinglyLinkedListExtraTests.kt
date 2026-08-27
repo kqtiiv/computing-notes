@@ -23,7 +23,6 @@ private val exampleStrings: Array<String> =
     )
 
 class SinglyLinkedListExtraTests {
-    // TODO - replace this placeholder test with a number of your own tests.
     @Test
     fun `test removeAt in bounds from end (Int)`() {
         val list = SinglyLinkedList<Int>()

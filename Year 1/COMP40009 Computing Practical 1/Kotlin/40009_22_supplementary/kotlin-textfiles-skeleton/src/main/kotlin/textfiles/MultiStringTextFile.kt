@@ -31,21 +31,13 @@ class MultiStringTextFile(
         blocks.forEach { combinedTxt.append(it) }
 
         val newBlocks: MutableList<StringBuilder> = mutableListOf()
-        val curString = StringBuilder()
-        var counter = 0
-        for (char in combinedTxt) {
-            if (counter == BLOCK_SIZE) {
-                newBlocks += StringBuilder(curString)
-                curString.clear()
-                counter = 0
-            }
-            curString.append(char)
-            counter++
+
+        while (combinedTxt.length >= BLOCK_SIZE) {
+            newBlocks += StringBuilder(combinedTxt.substring(0, BLOCK_SIZE))
+            combinedTxt.delete(0, BLOCK_SIZE)
         }
 
-        if (counter > 0) {
-            newBlocks += curString
-        }
+        if (combinedTxt.isNotEmpty()) newBlocks += StringBuilder(combinedTxt)
 
         blocks = newBlocks
     }
@@ -56,18 +48,15 @@ class MultiStringTextFile(
     ) {
         when (offset) {
             in 0 until length -> {
-                var offset = offset
-                var blockIndex = 0
-                var block = 0
-                while (offset != 0) {
-                    blockIndex++
-                    offset--
-                    if (blockIndex == blocks[block].length) {
-                        block++
-                        blockIndex = 0
+                var curOffset = offset
+                for (block in blocks) {
+                    val blockLen = block.length
+                    if (curOffset < blockLen) {
+                        block.insert(curOffset, toInsert)
+                        return
                     }
+                    curOffset -= blockLen
                 }
-                blocks[block].insert(blockIndex, toInsert)
             }
 
             length -> {

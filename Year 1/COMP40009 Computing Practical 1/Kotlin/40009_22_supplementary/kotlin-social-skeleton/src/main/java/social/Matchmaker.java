@@ -17,10 +17,10 @@ public final class Matchmaker {
         User firstLock = user1First ? user1 : user2;
         User secondLock = user1First ? user2: user1;
 
-        firstLock.getLock().lock();
         try {
-            secondLock.getLock().lock();
+            firstLock.getLock().lock();
             try {
+                secondLock.getLock().lock();
                 if (compatible.apply(user1, user2)) {
                     user1.considerFriendRequest(user2);
                     user2.considerFriendRequest(user1);
